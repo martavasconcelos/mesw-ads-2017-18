@@ -2,22 +2,14 @@ package hot;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import hot.devices.DimmableLamp;
 import hot.devices.Lamp;
+import hot.rooms.Bedroom;
+import hot.rooms.Kitchen;
 import hot.ui.Dashboard;
 
 import java.awt.BorderLayout;
-import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
 
 public class HoTapp {
 
@@ -50,6 +42,12 @@ public class HoTapp {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		RoomFactory bedroom = new Bedroom();
+		RoomFactory kitchen = new Kitchen();
+
+		bedroom.listDevices();
+		kitchen.listDevices();
+
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
