@@ -21,7 +21,7 @@ public class AC extends Device {
 	}
 
 	public void turnOn(){
-		acState.turnOn(this);
+		acState.setTargetTemperature();
 	}
 
 	public void turnOff(){

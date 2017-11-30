@@ -4,11 +4,11 @@ import hot.devices.AC;
 
 public class SummerACState implements ACState {
 
-    private final double onMinTemperature = 15;
+    private final double targetTemperature = 15;
 
     @Override
-    public void turnOn(AC ac) {
-        System.out.println("Turning on AC on Summer mode. Initial temperature: " + getOnMinTemperature(ac));
+    public void setTargetTemperature() {
+        System.out.println("Turning on AC on Summer mode. Initial temperature: " + targetTemperature);
     }
 
     @Override
@@ -17,8 +17,4 @@ public class SummerACState implements ACState {
         ac.setState(new ChristmasACState());
     }
 
-    @Override
-    public double getOnMinTemperature(AC ac) {
-        return onMinTemperature;
-    }
 }
