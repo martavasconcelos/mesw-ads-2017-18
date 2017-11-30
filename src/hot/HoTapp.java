@@ -3,6 +3,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import hot.devices.AC;
+import hot.devices.ChristmasACState;
 import hot.devices.DimmableLamp;
 import hot.devices.Lamp;
 import hot.rooms.Bedroom;
@@ -42,11 +44,18 @@ public class HoTapp {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		//factory method
 		RoomFactory bedroom = new Bedroom();
 		RoomFactory kitchen = new Kitchen();
-
 		bedroom.listDevices();
 		kitchen.listDevices();
+
+		//state method
+		final AC ac = new AC();
+		ac.turnOn();
+		ac.turnOff();
+		ac.turnOn();
+		ac.turnOff();
 
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
