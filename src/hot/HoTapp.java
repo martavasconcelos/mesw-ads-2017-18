@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import hot.devices.AC;
 import hot.devices.DimmableLamp;
 import hot.devices.Lamp;
+import hot.devices.Radio;
 import hot.rooms.Bedroom;
 import hot.rooms.Kitchen;
 import hot.ui.Dashboard;
@@ -75,6 +76,7 @@ public class HoTapp {
 		dashboard.add(new Lamp(),2,3,1,1);
 		dashboard.add(new Lamp(),3,2,1,1);
 		dashboard.add(new DimmableLamp(),3,3,1,1);
+		dashboard.add(new Radio(),4,0,4,1);
 	}
 
 }
