@@ -1,11 +1,14 @@
 package hot.devices;
 
+import hot.state.ACState;
+import hot.state.ChristmasACState;
+
 public class AC extends Device {
 	private ACState acState = new ChristmasACState();
 	private int targetTemperature = 10;
 	private int ambientTemperature = 10;
 
-	void setState(final ACState newState) {
+	public void setState(final ACState newState) {
 		acState = newState;
 	}
 

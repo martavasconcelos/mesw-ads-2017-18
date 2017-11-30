@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 
 import hot.devices.AC;
-import hot.devices.ChristmasACState;
 import hot.devices.DimmableLamp;
 import hot.devices.Lamp;
 import hot.rooms.Bedroom;

@@ -1,4 +1,6 @@
-package hot.devices;
+package hot.state;
+
+import hot.devices.AC;
 
 public class ChristmasACState implements ACState {
 
