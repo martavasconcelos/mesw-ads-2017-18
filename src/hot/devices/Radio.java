@@ -1,12 +1,12 @@
 package hot.devices;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Radio extends Device {
-    private int freq = 0;
     public int i;
     public int c = 0;
 
@@ -14,28 +14,22 @@ public class Radio extends Device {
     Originator originator = new Originator();
     CareTaker careTaker = new CareTaker();
 
-    public void dimmTo(int i) {
-        freq = i;
-    }
-
-    public int getIntensity() {
-        return freq;
-    }
-
     public JPanel getPanel() {
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
+        Border blackline = BorderFactory.createLineBorder(Color.black);
+        panel.setBorder(blackline);
         JTextField text = new JTextField();
         JButton button = new JButton("Radio");
-        JButton freq1 = new JButton("1");
-        JButton freq2 = new JButton("2");
-        JButton save = new JButton("S");
+        JButton freq1 = new JButton("F1");
+        JButton freq2 = new JButton("F2");
+        JButton save = new JButton("Save");
 
         button.setMargin(new Insets(20, 20, 20, 20));
         text.setMargin(new Insets(5, 5, 5, 5));
         freq1.setMargin(new Insets(20, 10, 20, 10));
         freq2.setMargin(new Insets(20, 10, 20, 10));
-        save.setMargin(new Insets(20, 10, 20, 10));
+        save.setMargin(new Insets(20, 5, 20, 5));
 
 
         button.setOpaque(true);
@@ -44,6 +38,27 @@ public class Radio extends Device {
         button.setFocusPainted(false);
         button.setBackground(Color.RED);
         button.setForeground(Color.BLACK);
+
+        freq1.setOpaque(true);
+        freq1.setContentAreaFilled(true);
+        freq1.setBorderPainted(false);
+        freq1.setFocusPainted(false);
+        freq1.setBackground(Color.RED);
+        freq1.setForeground(Color.BLACK);
+
+        freq2.setOpaque(true);
+        freq2.setContentAreaFilled(true);
+        freq2.setBorderPainted(false);
+        freq2.setFocusPainted(false);
+        freq2.setBackground(Color.RED);
+        freq2.setForeground(Color.BLACK);
+
+        save.setOpaque(true);
+        save.setContentAreaFilled(true);
+        save.setBorderPainted(false);
+        save.setFocusPainted(false);
+        save.setBackground(Color.RED);
+        save.setForeground(Color.BLACK);
 
         text.setOpaque(true);
 
@@ -64,6 +79,9 @@ public class Radio extends Device {
 
                 } else {
                     button.setBackground(Color.GREEN);
+                    freq1.setBackground(Color.LIGHT_GRAY);
+                    freq2.setBackground(Color.LIGHT_GRAY);
+                    save.setBackground(Color.LIGHT_GRAY);
                     turnOn();
                     i = 1;
                     text.setText("63.7");
@@ -74,29 +92,30 @@ public class Radio extends Device {
         save.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                String freqvalue = text.getText();
-
-                originator.setState(freqvalue);
-                careTaker.add(originator.saveStateToMemento());
-                c++;
+                if (isOn()) {
+                    String freqvalue = text.getText();
+                    originator.setState(freqvalue);
+                    careTaker.add(originator.saveStateToMemento());
+                    c++;
+                }
             }
         });
 
         freq1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                if (isOn()) {
+                    if (c == 1) {
+                        originator.getStateFromMemento(careTaker.get(0));
+                        String b = originator.getState();
 
-                if (c == 1) {
-                    originator.getStateFromMemento(careTaker.get(0));
-                    String b = originator.getState();
+                        text.setText(b);
+                    } else {
+                        originator.getStateFromMemento(careTaker.get(c - 2));
+                        String b = originator.getState();
 
-                    text.setText(b);
-                }
-                else {
-                    originator.getStateFromMemento(careTaker.get(c-2));
-                    String b = originator.getState();
-
-                    text.setText(b);
+                        text.setText(b);
+                    }
                 }
             }
 
@@ -106,11 +125,13 @@ public class Radio extends Device {
         freq2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                if (isOn()) {
 
-                originator.getStateFromMemento(careTaker.get(c-1));
-                String b = originator.getState();
+                    originator.getStateFromMemento(careTaker.get(c - 1));
+                    String b = originator.getState();
 
-                text.setText(b);
+                    text.setText(b);
+                }
 
             }
         });
