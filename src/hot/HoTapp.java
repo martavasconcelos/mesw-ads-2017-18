@@ -12,7 +12,9 @@ import hot.ui.Dashboard;
 import java.awt.BorderLayout;
 
 public class HoTapp {
-
+    //strategy method
+    public static int numberOfDevices=0;
+    public static int numberOfDevicesAllowed=6 ;
     private JFrame frame;
 
     /**
@@ -55,6 +57,7 @@ public class HoTapp {
         ac.turnOn();
         ac.turnOff();
 
+
         frame = new JFrame();
         frame.setBounds(100, 100, 420, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,6 +78,7 @@ public class HoTapp {
         dashboard.add(new Lamp(), 3, 2, 1, 1);
         dashboard.add(new DimmableLamp(), 3, 3, 1, 1);
         dashboard.add(new Radio(), 4, 0, 4, 1);
+        dashboard.add(new Saver(), 4, 3, 4, 1);
     }
 
 }
