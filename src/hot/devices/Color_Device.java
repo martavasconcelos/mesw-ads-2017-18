@@ -61,51 +61,40 @@ public class Color_Device extends Device {
         panel.add(pink, BorderLayout.LINE_END);
         panel.add(yellow, BorderLayout.CENTER);
 
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                if (isOn()) {
-                    button.setBackground(Color.RED);
-                    blue.setBackground(Color.RED);
-                    yellow.setBackground(Color.RED);
-                    pink.setBackground(Color.RED);
-                    turnOff();
-                } else {
-                    button.setBackground(Color.GREEN);
-                    blue.setBackground(Color.BLUE);
-                    yellow.setBackground(Color.YELLOW);
-                    pink.setBackground(Color.PINK);
-                    turnOn();
-                }
+        button.addActionListener(e -> {
+            if (isOn()) {
+                button.setBackground(Color.RED);
+                blue.setBackground(Color.RED);
+                yellow.setBackground(Color.RED);
+                pink.setBackground(Color.RED);
+                turnOff();
+            } else {
+                button.setBackground(Color.GREEN);
+                blue.setBackground(Color.BLUE);
+                yellow.setBackground(Color.YELLOW);
+                pink.setBackground(Color.PINK);
+                turnOn();
             }
         });
 
-        blue.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if (isOn()) {
-                    setColor("blue");
-                    button.setBackground(Color.BLUE);
-                }
+        blue.addActionListener(actionEvent -> {
+            if (isOn()) {
+                setColor("blue");
+                button.setBackground(Color.BLUE);
             }
         });
 
-        yellow.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if (isOn()) {
-                    setColor("yellow");
-                    button.setBackground(Color.YELLOW);
-                }
+        yellow.addActionListener(actionEvent -> {
+            if (isOn()) {
+                setColor("yellow");
+                button.setBackground(Color.YELLOW);
             }
         });
 
-        pink.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                if (isOn()) {
-                    setColor("pink");
-                    button.setBackground(Color.PINK);
-                }
+        pink.addActionListener(actionEvent -> {
+            if (isOn()) {
+                setColor("pink");
+                button.setBackground(Color.PINK);
             }
         });
 

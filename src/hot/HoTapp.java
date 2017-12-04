@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import hot.compositesingleton.House;
 import hot.devices.*;
 import hot.rooms.Bedroom;
 import hot.rooms.Kitchen;
@@ -21,14 +22,12 @@ public class HoTapp {
      * Launch the application.
      */
     public static void main(String[] args) {
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    HoTapp window = new HoTapp();
-                    window.frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        EventQueue.invokeLater(() -> {
+            try {
+                HoTapp window = new HoTapp();
+                window.frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         });
     }
@@ -36,19 +35,37 @@ public class HoTapp {
     /**
      * Create the application.
      */
-    public HoTapp() {
+    public HoTapp() throws InterruptedException {
         initialize();
     }
 
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() {
+    private void initialize() throws InterruptedException {
         //factory method
         RoomFactory bedroom = new Bedroom();
         RoomFactory kitchen = new Kitchen();
         bedroom.listDevices();
         kitchen.listDevices();
+
+
+        //composite singleton method
+
+        House.add(bedroom);
+        House.add(kitchen);
+        System.out.println("rooms" + House.getRooms().size());
+        for (int i = 0; i < House.getRooms().size(); i++){
+            RoomFactory room = House.getRooms().get(i);
+            room.turnOn();
+            System.out.println("Turned on room " + House.getRooms().toString());
+           //     wait(1000);
+            room.turnOff();
+            System.out.println("Turned off room " + House.getRooms().toString());
+
+        }
+
+
 
         //state method
         final AC ac = new AC();

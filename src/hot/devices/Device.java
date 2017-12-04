@@ -59,19 +59,17 @@ public class Device {
 
         panel.add(button, BorderLayout.CENTER);
 
-        button.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                System.out.println("state"+ isOn());
-                if (isOn()) {
-                    button.setText("OFF");
-                    button.setBackground(Color.RED);
-                    turnOff();
-                } else {
-                    if(checkSaver()) {
-                        turnOn();
-                        button.setText("ON");
-                        button.setBackground(Color.GREEN);
-                    }
+        button.addActionListener(e -> {
+            System.out.println("state"+ isOn());
+            if (isOn()) {
+                button.setText("OFF");
+                button.setBackground(Color.RED);
+                turnOff();
+            } else {
+                if(checkSaver()) {
+                    turnOn();
+                    button.setText("ON");
+                    button.setBackground(Color.GREEN);
                 }
             }
         });
