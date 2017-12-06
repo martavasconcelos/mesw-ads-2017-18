@@ -95,6 +95,7 @@ public class HoTapp {
         dashboard.add(new Lamp(), 3, 2, 1, 1);
         dashboard.add(new DimmableLamp(), 3, 3, 1, 1);
         dashboard.add(new Radio(), 4, 0, 4, 1);
+        dashboard.add(new NullDevice(), 4, 2, 4, 1);
         dashboard.add(new Saver(), 4, 3, 4, 1);
     }
 

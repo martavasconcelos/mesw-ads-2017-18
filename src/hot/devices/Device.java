@@ -17,12 +17,13 @@ public class Device {
 
     public void turnOn() {
         on = true;
-        System.out.println("devices on: " + HoTapp.numberOfDevices);
+        HoTapp.numberOfDevices= HoTapp.numberOfDevices+1;
     }
     public boolean checkSaver(){
-        System.out.println("devices on: " + HoTapp.numberOfDevices);
+
         System.out.println("devices allowed: " + HoTapp.numberOfDevicesAllowed);
-        if(HoTapp.numberOfDevices < HoTapp.numberOfDevicesAllowed) {
+        if(HoTapp.numberOfDevices <= HoTapp.numberOfDevicesAllowed) {
+            System.out.println("devices on: " + HoTapp.numberOfDevices);
             System.out.println("can be turned on");
             return true;
         }
@@ -35,7 +36,6 @@ public class Device {
     public void turnOff() {
         on = false;
         HoTapp.numberOfDevices= HoTapp.numberOfDevices-1;
-
     }
 
     public boolean isOn() {
