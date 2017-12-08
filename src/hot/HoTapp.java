@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import hot.compositesingleton.Composite;
 import hot.compositesingleton.House;
 import hot.devices.*;
 import hot.rooms.Bedroom;
@@ -42,7 +43,7 @@ public class HoTapp {
     /**
      * Initialize the contents of the frame.
      */
-    private void initialize() throws InterruptedException {
+    private void initialize()  {
         //factory method
         RoomFactory bedroom = new Bedroom();
         RoomFactory kitchen = new Kitchen();
@@ -51,19 +52,9 @@ public class HoTapp {
 
 
         //composite singleton method
-
-        House.add(bedroom);
+        Composite c= new Composite();
         House.add(kitchen);
-        System.out.println("rooms" + House.getRooms().size());
-        for (int i = 0; i < House.getRooms().size(); i++){
-            RoomFactory room = House.getRooms().get(i);
-            room.turnOn();
-            System.out.println("Turned on room " + House.getRooms().toString());
-           //     wait(1000);
-            room.turnOff();
-            System.out.println("Turned off room " + House.getRooms().toString());
 
-        }
 
 
 
@@ -97,6 +88,7 @@ public class HoTapp {
         dashboard.add(new Radio(), 4, 0, 4, 1);
         dashboard.add(new NullDevice(), 4, 2, 4, 1);
         dashboard.add(new Saver(), 4, 3, 4, 1);
+        dashboard.add(new Kitchen().getPanel(), 4, 1, 2, 1);
     }
 
 }

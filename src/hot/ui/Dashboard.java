@@ -31,4 +31,13 @@ public class Dashboard {
 	    c.fill = GridBagConstraints.BOTH;
 		panel.add(device.getPanel(),c);
 	}
+	public void add(JPanel panel, int x, int y, int width, int height){
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = x;
+		c.gridy = y;
+		c.gridwidth = width;
+		c.gridheight = height;
+		c.fill = GridBagConstraints.BOTH;
+		this.panel.add(panel, c);
+	}
 }
