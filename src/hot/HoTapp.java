@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+import hot.Mediator.*;
+import hot.command.*;
 import hot.compositesingleton.Composite;
 import hot.compositesingleton.House;
 import hot.devices.*;
@@ -32,7 +34,6 @@ public class HoTapp {
             }
         });
     }
-
     /**
      * Create the application.
      */
@@ -55,6 +56,33 @@ public class HoTapp {
         Composite c= new Composite();
         House.add(kitchen);
 
+
+
+        //Command
+        TV newTV = TVRemote.getTV();
+
+        TurnOn onCommand = new TurnOn(newTV);
+        Button onPressed = new Button(onCommand);
+        onPressed.press();
+
+        TurnVolumeUP upCommand = new TurnVolumeUP(newTV);
+        Button upPressed = new Button(upCommand);
+        upPressed.press();
+
+        TurnVolumeDown downCommand = new TurnVolumeDown(newTV);
+        Button downPressed = new Button(downCommand);
+        downPressed.press();
+
+        TurnOff offCommand = new TurnOff(newTV);
+        Button offPressed = new Button(offCommand);
+        offPressed.press();
+
+        //Mediator
+        DoorLockMediator mediator = new MediatorImpl();
+        DoorLock doorLock1 = new DoorLockImpl(mediator, "Front Door" );
+        mediator.addDoor(doorLock1);
+        doorLock1.turnOn();
+        doorLock1.turnOff();
 
 
 
