@@ -34,16 +34,22 @@ public class Saver extends Device{
                 if (activated) {
                     button.setText("Saver off");
                     button.setBackground(Color.RED);
-                activated=false;
-                    HoTapp.numberOfDevicesAllowed=6;
+                    HoTapp.label.setText(" ");
+
+                    activated=false;
+                    HoTapp.numberOfDevicesAllowed=25;
                 } else {
                     button.setText("Saver on");
                     button.setBackground(Color.GREEN);
                     activated=true;
-                    HoTapp.numberOfDevicesAllowed=3;
+                    HoTapp.numberOfDevicesAllowed=8;
                 }
             }
         });
         return panel;
+    }
+
+    public boolean getActivated(){
+        return activated;
     }
 }

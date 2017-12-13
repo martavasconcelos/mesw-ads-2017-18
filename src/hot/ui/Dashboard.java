@@ -4,14 +4,14 @@ import java.awt.Component;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 
-import javax.swing.JPanel;
+import javax.swing.*;
 
 import hot.devices.Device;
 
 public class Dashboard {
 
 	JPanel panel;
-	
+
 	public Component getPanel() {
 		
 		if (panel == null) {
@@ -39,5 +39,14 @@ public class Dashboard {
 		c.gridheight = height;
 		c.fill = GridBagConstraints.BOTH;
 		this.panel.add(panel, c);
+	}
+	public void add(JLabel label, int x, int y, int width, int height){
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = x;
+		c.gridy = y;
+		c.gridwidth = width;
+		c.gridheight = height;
+		c.fill = GridBagConstraints.BOTH;
+		panel.add(label, c);
 	}
 }

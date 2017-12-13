@@ -2,7 +2,7 @@ package hot;
 
 import java.awt.EventQueue;
 
-import javax.swing.JFrame;
+import javax.swing.*;
 
 import hot.Mediator.*;
 import hot.command.*;
@@ -18,9 +18,9 @@ import java.awt.BorderLayout;
 public class HoTapp {
     //strategy method
     public static int numberOfDevices=0;
-    public static int numberOfDevicesAllowed=6 ;
+    public static int numberOfDevicesAllowed=25 ;
     private JFrame frame;
-
+    public static JLabel label = new JLabel("");
     /**
      * Launch the application.
      */
@@ -117,6 +117,8 @@ public class HoTapp {
         dashboard.add(new NullDevice(), 4, 2, 4, 1);
         dashboard.add(new Saver(), 4, 3, 4, 1);
         dashboard.add(new Kitchen().getPanel(), 4, 1, 2, 1);
+        dashboard.add(label, 0, 4, 6, 1);
+
     }
 
 }
