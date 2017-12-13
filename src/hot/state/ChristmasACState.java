@@ -1,6 +1,7 @@
 package hot.state;
 
 import hot.devices.AC;
+import hot.devices.Device;
 
 public class ChristmasACState implements ACState {
 

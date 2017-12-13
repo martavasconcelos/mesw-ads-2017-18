@@ -1,5 +1,6 @@
 package hot.Mediator;
 
+import hot.HoTapp;
 import hot.devices.DoorLock;
 
 public class DoorLockImpl extends DoorLock{
@@ -13,6 +14,7 @@ public class DoorLockImpl extends DoorLock{
         super.turnOn();
         System.out.println(this.name + " is Locked ");
         mediator.changeDoorState(this);
+
     }
 
     @Override

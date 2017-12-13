@@ -17,7 +17,11 @@ public class Device {
 
     public void turnOn() {
         on = true;
+
         HoTapp.numberOfDevices= HoTapp.numberOfDevices+1;
+
+
+        System.out.println("turn on"+HoTapp.numberOfDevices);
     }
     public boolean checkSaver(){
 
@@ -35,6 +39,7 @@ public class Device {
 
     public void turnOff() {
         on = false;
+        System.out.println("turn off"+HoTapp.numberOfDevices);
         HoTapp.numberOfDevices= HoTapp.numberOfDevices-1;
     }
 

@@ -1,5 +1,6 @@
 package hot.devices;
 
+import hot.HoTapp;
 import hot.state.ACState;
 import hot.state.ChristmasACState;
 
@@ -21,10 +22,15 @@ public class AC extends Device {
 	}
 
 	public void turnOn(){
+		super.turnOn();
 		acState.setTargetTemperature();
 	}
 
-	public void turnOff(){
+	@Override
+	public void turnOff() {
+		super.turnOff();
 		acState.turnOff(this);
 	}
+
+
 }
