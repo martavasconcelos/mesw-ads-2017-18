@@ -8,18 +8,18 @@ public class TV extends Device{
 
     public void volumeUp(){
         volume++;
-        System.out.println("TV Volume is at " + volume +" volume");
+        System.out.println("TV Volume is at " + volume +" volume\n");
     }
 
     public void volumeDown(){
         volume--;
-        System.out.println("TV Volume is at " + volume +" volume");
+        System.out.println("TV Volume is at " + volume +" volume\n");
     }
 
     @Override
     public void turnOn() {
         super.turnOn();
-        System.out.println("TV is ON ");
+        System.out.println("TV is ON \n");
 
     }
 
@@ -27,6 +27,6 @@ public class TV extends Device{
     public void turnOff() {
         super.turnOff();
 
-        System.out.println("TV is OFF ");
+        System.out.println("TV is OFF\n ");
     }
 }

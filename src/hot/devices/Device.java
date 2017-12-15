@@ -16,7 +16,7 @@ public class Device {
     boolean on = false;
 
     public void turnOn() {
-        System.out.println("turn on"+HoTapp.numberOfDevices);
+
         on = true;
         HoTapp.numberOfDevices= HoTapp.numberOfDevices+1;
     }
@@ -29,7 +29,7 @@ public class Device {
         }
         else {
             System.out.println("can't be turned on");
-            HoTapp.label.setText("the device can't be turned on, the limit of devices allowed was reached. Turn off other device or disable the energy save mode");
+            HoTapp.label.setText("The device can't be turned on, the limit of devices allowed was reached. Turn off other device or disable the energy save mode");
             return false;
         }
     }
@@ -37,7 +37,7 @@ public class Device {
     public void turnOff() {
         on = false;
         HoTapp.numberOfDevices= HoTapp.numberOfDevices-1;
-        System.out.println("turn off"+HoTapp.numberOfDevices);
+       
         HoTapp.label.setText(" ");
 
 

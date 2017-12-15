@@ -82,7 +82,23 @@ public class HoTapp {
         DoorLock doorLock1 = new DoorLockImpl(mediator, "Front Door" );
         mediator.addDoor(doorLock1);
         doorLock1.turnOn();
-        doorLock1.turnOff();
+
+        DoorLock doorLock2 = new DoorLockImpl(mediator,"Back Door" );
+        mediator.addDoor(doorLock2);
+        doorLock2.turnOn();
+
+        DoorLock doorLock3 = new DoorLockImpl(mediator,"Kitcken Door" );
+        mediator.addDoor(doorLock3);
+        doorLock3.turnOn();
+        doorLock2.turnOff();
+        doorLock3.turnOff();
+
+
+        if(doorLock1.isOn()){
+            System.out.println("\nFront door was locked!\n");
+            doorLock2.turnOn();
+            doorLock3.turnOn();
+        }
 
 
 

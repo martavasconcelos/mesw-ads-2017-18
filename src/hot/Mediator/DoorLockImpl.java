@@ -12,7 +12,7 @@ public class DoorLockImpl extends DoorLock{
     @Override
     public void turnOn() {
         super.turnOn();
-        System.out.println(this.name + " is Locked ");
+        System.out.println(this.name + " is Locked \n");
         mediator.changeDoorState(this);
 
     }
@@ -20,7 +20,7 @@ public class DoorLockImpl extends DoorLock{
     @Override
     public void turnOff() {
         super.turnOff();
-        System.out.println(this.name + " is Unlocked ");
+        System.out.println(this.name + " is Unlocked\n ");
         mediator.changeDoorState(this);
     }
 }
