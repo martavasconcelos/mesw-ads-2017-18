@@ -18,7 +18,7 @@ import java.awt.BorderLayout;
 public class HoTapp {
     //strategy method
     public static int numberOfDevices=0;
-    public static int numberOfDevicesAllowed=25 ;
+    public static Mode mode = new Normal();
     private JFrame frame;
     public static JLabel label = new JLabel("");
     /**
@@ -131,7 +131,7 @@ public class HoTapp {
         dashboard.add(new DimmableLamp(), 2, 1, 1, 1);
         dashboard.add(new Radio(), 4, 0, 4, 1);
         dashboard.add(new NullDevice(), 4, 2, 4, 1);
-        dashboard.add(new Saver(), 4, 3, 4, 1);
+        dashboard.add(new Mode(), 4, 3, 4, 1);
         dashboard.add(new Kitchen().getPanel(), 4, 1, 2, 1);
         dashboard.add(label, 0, 4, 6, 1);
 

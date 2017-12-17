@@ -1,6 +1,4 @@
-package hot.devices;
-
-import hot.HoTapp;
+package hot;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -8,8 +6,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Saver extends Device{
+import static hot.HoTapp.mode;
+
+public class Mode {
     boolean activated=false;
+    int devicesAllowed=25;
 
     public JPanel getPanel() {
         JPanel panel = new JPanel();
@@ -35,21 +36,32 @@ public class Saver extends Device{
                     button.setText("Saver off");
                     button.setBackground(Color.RED);
                     HoTapp.label.setText(" ");
-
                     activated=false;
-                    HoTapp.numberOfDevicesAllowed=25;
+                    Normal normal=new Normal();
+                    mode.devicesAllowed=normal.devicesAllowed;
+                    System.out.println("CHANGE MODE");
+
+
+
                 } else {
                     button.setText("Saver on");
                     button.setBackground(Color.GREEN);
                     activated=true;
-                    HoTapp.numberOfDevicesAllowed=8;
+                    Saver saver=new Saver();
+                    mode.devicesAllowed=saver.devicesAllowed;
+                    System.out.println("CHANGE MODE");
+
                 }
             }
         });
         return panel;
     }
-
     public boolean getActivated(){
         return activated;
     }
+    public int getDevicesAllowed(){
+        return mode.devicesAllowed;
+    }
+
+
 }

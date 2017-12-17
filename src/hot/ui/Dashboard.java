@@ -7,7 +7,7 @@ import java.awt.GridBagLayout;
 import javax.swing.*;
 
 import hot.devices.Device;
-
+import hot.Mode;
 public class Dashboard {
 
 	JPanel panel;
@@ -48,5 +48,14 @@ public class Dashboard {
 		c.gridheight = height;
 		c.fill = GridBagConstraints.BOTH;
 		panel.add(label, c);
+	}
+	public void add(Mode mode, int x, int y, int width, int height) {
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridx = x;
+		c.gridy = y;
+		c.gridwidth = width;
+		c.gridheight = height;
+		c.fill = GridBagConstraints.BOTH;
+		panel.add(mode.getPanel(),c);
 	}
 }

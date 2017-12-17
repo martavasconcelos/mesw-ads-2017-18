@@ -21,8 +21,8 @@ public class Device {
         HoTapp.numberOfDevices= HoTapp.numberOfDevices+1;
     }
     public boolean checkSaver(){
-        System.out.println("devices allowed: " + HoTapp.numberOfDevicesAllowed);
-        if(HoTapp.numberOfDevices <= HoTapp.numberOfDevicesAllowed) {
+        System.out.println("devices allowed: " + HoTapp.mode.getDevicesAllowed());
+        if(HoTapp.numberOfDevices <= HoTapp.mode.getDevicesAllowed()) {
             System.out.println("devices on: " + HoTapp.numberOfDevices);
             System.out.println("can be turned on");
             return true;
