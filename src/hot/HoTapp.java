@@ -18,7 +18,7 @@ import java.awt.BorderLayout;
 public class HoTapp {
     //strategy method
     public static int numberOfDevices=0;
-    public static Mode mode = new Normal();
+    public static Mode mode = new Mode();
     private JFrame frame;
     public static JLabel label = new JLabel("");
     /**
@@ -50,6 +50,7 @@ public class HoTapp {
         RoomFactory kitchen = new Kitchen();
         bedroom.listDevices();
         kitchen.listDevices();
+        mode.initalize();
 
 
         //composite singleton method
